@@ -1,0 +1,1 @@
+// Aqui vai ficar a configuração do express, rotas, middlewares, etc.
