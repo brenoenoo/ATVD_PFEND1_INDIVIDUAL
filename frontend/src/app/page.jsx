@@ -232,11 +232,11 @@ export default function Home() {
               <div className="col-lg-5">
                 <div
                   className={styles.heroVisual}
-                  aria-label="Arte visual da Pink Arena"
+                  aria-label="Arte visual da ProDrop"
                   role="img"
                 >
                   <div className={styles.heroRing} />
-                  <div className={styles.heroMonogram}>PA</div>
+                  <div className={styles.heroMonogram}>PD</div>
 
                   <span className={`${styles.heroPill} ${styles.heroPillTop}`}>
                     ESPORTS GEAR
@@ -327,14 +327,14 @@ export default function Home() {
           <div className="d-flex flex-column flex-md-row justify-content-between gap-3">
             <div>
               <strong className={styles.footerBrand}>
-                PINK<span>ARENA</span>
+                PRO<span>DROP</span>
               </strong>
 
               <p>Seu jogo. Seu estilo. Seu próximo nível.</p>
             </div>
 
             <p className={styles.footerCopy}>
-              © {new Date().getFullYear()} Pink Arena — Projeto acadêmico.
+              © {new Date().getFullYear()} ProDrop — Projeto acadêmico.
             </p>
           </div>
         </div>

@@ -56,7 +56,9 @@ export default function ProductDetailsModal({
               className={styles.image}
             />
           ) : (
-            <span className={styles.imageFallback}>PINK ARENA</span>
+            <span className={styles.imageFallback}>
+              PRO<span>DROP</span>
+            </span>
           )}
         </div>
 

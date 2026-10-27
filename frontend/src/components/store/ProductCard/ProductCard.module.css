@@ -36,6 +36,10 @@
   letter-spacing: 3px;
 }
 
+.imageFallback > span {
+  color: #ffffff;
+}
+
 .productImage {
   position: absolute;
   inset: 0;

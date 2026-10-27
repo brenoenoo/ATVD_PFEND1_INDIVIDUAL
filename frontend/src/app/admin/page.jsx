@@ -270,7 +270,7 @@ export default function AdminPage() {
           </h1>
 
           <p className={styles.subtitle}>
-            Gerencie os produtos que aparecem na vitrine da Pink Arena.
+            Gerencie os produtos que aparecem na vitrine da ProDrop.
           </p>
 
           <div className={styles.pageActions}>
@@ -598,7 +598,10 @@ export default function AdminPage() {
       </main>
 
       <footer className={styles.footer}>
-        PINKARENA <span>·</span> PAINEL DE GERENCIAMENTO
+        <strong className={styles.footerBrand}>
+          PRO<span>DROP</span>
+        </strong>{" "}
+        <span>·</span> PAINEL DE GERENCIAMENTO
       </footer>
     </div>
   );

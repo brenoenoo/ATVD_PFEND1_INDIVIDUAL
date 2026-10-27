@@ -5,14 +5,14 @@ export default function Brand({ subtitle = "ESPORTS STORE", href = "/" }) {
     <a
       className={styles.brandLink}
       href={href}
-      aria-label="Pink Arena - Início"
+      aria-label="ProDrop - Início"
     >
       <span className={styles.brandMark} aria-hidden="true">
         P
       </span>
 
       <span className={styles.brandName}>
-        PINK<span>ARENA</span>
+        PRO<span>DROP</span>
         <small>{subtitle}</small>
       </span>
     </a>

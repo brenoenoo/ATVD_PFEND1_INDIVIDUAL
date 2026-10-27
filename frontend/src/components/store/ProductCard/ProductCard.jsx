@@ -20,7 +20,9 @@ export default function ProductCard({ produto, onAdicionar, onVerDetalhes }) {
   return (
     <article className={`card h-100 ${styles.productCard}`}>
       <div className={styles.productImageWrap}>
-        <span className={styles.imageFallback}>PINK ARENA</span>
+        <span className={styles.imageFallback}>
+          PRO<span>DROP</span>
+        </span>
 
         {produto.imagem && (
           <img

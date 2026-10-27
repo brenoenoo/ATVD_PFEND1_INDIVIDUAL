@@ -140,7 +140,10 @@ export default function CheckoutModal({
       >
         <header className={styles.header}>
           <div>
-            <p className={styles.eyebrow}>PINK ARENA</p>
+            <p className={styles.eyebrow}>
+              <span>PRO</span>
+              <span>DROP</span>
+            </p>
 
             <h2 id="checkout-titulo">
               {pedido ? "PEDIDO RECEBIDO" : "FINALIZAR COMPRA"}

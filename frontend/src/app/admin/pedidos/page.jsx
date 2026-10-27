@@ -284,11 +284,11 @@ export default function PedidosAdminPage() {
     <div className={styles.adminPage}>
       <nav className={`navbar ${styles.navbar}`}>
         <div className="container-fluid px-3 px-lg-5">
-          <a href="/" className={styles.brand} aria-label="Pink Arena - loja">
+          <a href="/" className={styles.brand} aria-label="ProDrop - loja">
             <span className={styles.brandMark}>P</span>
 
             <span className={styles.brandName}>
-              PINK<span>ARENA</span>
+              PRO<span>DROP</span>
               <small>PAINEL ADMINISTRATIVO</small>
             </span>
           </a>

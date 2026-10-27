@@ -71,6 +71,10 @@
   letter-spacing: 3px;
 }
 
+.imageFallback > span {
+  color: #ffffff;
+}
+
 .content {
   display: flex;
   flex-direction: column;

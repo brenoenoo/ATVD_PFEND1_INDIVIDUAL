@@ -558,6 +558,15 @@
   color: #f58dbb;
 }
 
+.footerBrand {
+  color: #f58dbb;
+}
+
+.footerBrand span {
+  padding: 0;
+  color: #fff;
+}
+
 .submitButton:focus-visible,
 .cancelButton:focus-visible,
 .refreshButton:focus-visible,

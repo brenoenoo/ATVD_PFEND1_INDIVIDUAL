@@ -39,6 +39,10 @@
   letter-spacing: 2px;
 }
 
+.eyebrow span:last-child {
+  color: #ffffff;
+}
+
 .header h2 {
   margin: 0;
   font-size: clamp(1.25rem, 3vw, 1.75rem);
