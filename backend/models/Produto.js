@@ -1,5 +1,13 @@
 export default class Produto {
-  constructor({ id, nome, preco, estoque = 0, categoria, imagem = "" }) {
+  constructor({
+    id,
+    nome,
+    descricao = "",
+    preco,
+    estoque = 0,
+    categoria,
+    imagem = "",
+  }) {
     if (!Number.isInteger(id) || id <= 0) {
       throw new TypeError("ID deve ser um inteiro positivo.");
     }
@@ -24,8 +32,13 @@ export default class Produto {
       throw new TypeError("A imagem deve ser uma URL em texto.");
     }
 
+    if (typeof descricao !== "string") {
+      throw new TypeError("A descrição deve ser um texto.");
+    }
+
     this.id = id;
     this.nome = nome.trim();
+    this.descricao = descricao.trim();
     this.preco = preco;
     this.estoque = estoque;
     this.categoria = categoria.trim();

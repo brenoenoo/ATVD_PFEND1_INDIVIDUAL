@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import styles from "./page.module.css";
+import Link from "next/link";
 import AdminHeader from "../../components/admin/AdminHeader/AdminHeader";
 
 const API_URL = "http://localhost:3001/api/produtos";
@@ -271,6 +272,16 @@ export default function AdminPage() {
           <p className={styles.subtitle}>
             Gerencie os produtos que aparecem na vitrine da Pink Arena.
           </p>
+
+          <div className={styles.pageActions}>
+            <Link
+              href="/admin/pedidos"
+              className={`btn ${styles.ordersButton}`}
+            >
+              <i className="bi bi-receipt me-2" aria-hidden="true"></i>
+              GERENCIAR PEDIDOS
+            </Link>
+          </div>
         </header>
 
         {erro && (

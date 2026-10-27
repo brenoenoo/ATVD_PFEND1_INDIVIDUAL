@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "nome": "Camisa LOUD 2026",
+    "descricao": "Camisa oficial-inspired da LOUD para fãs de esports, com identidade verde e detalhes pretos.",
+    "preco": 249.9,
+    "categoria": "Camisas",
+    "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRebwEWnrNZW_rkAQ8nfaAeeHMIpTaHJiMlxefZKwqK9g&s=10",
+    "estoque": 20
+  },
+  {
+    "id": 2,
+    "nome": "Camisa Leviatán Esports",
+    "descricao": "Camisa azul e branca inspirada na identidade da Leviatán.",
+    "preco": 239.9,
+    "categoria": "Camisas",
+    "imagem": "https://leviatan.gg/jersey/assets/img/player-4.jpg",
+    "estoque": 15
+  },
+  {
+    "id": 3,
+    "nome": "Camisa MIBR Esports",
+    "descricao": "Modelo preto e azul inspirado nas cores tradicionais do MIBR.",
+    "preco": 229.9,
+    "categoria": "Camisas",
+    "imagem": "https://mkplace-images.imgix.net/1_YLib8b5o/d739799a7be1e89ad9743953275102d080218107_https-bucket-file-storage-production-mkplaces3sa-east-1amazonawscom-tvdxhjktc5-dbe15c916fa29e541ef16deb5c7066b1jpgwebp?w=1000&h=1000&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.1&auto=format,compress&q=60&strip=all",
+    "estoque": 18
+  },
+  {
+    "id": 4,
+    "nome": "Camisa FURIA Esports",
+    "descricao": "Camisa preta com detalhes em branco, inspirada na identidade da FURIA.",
+    "preco": 249.9,
+    "categoria": "Camisas",
+    "imagem": "https://s2-ge.glbimg.com/wbC5JVKtg4mn_5p2yQMfu35yii8=/1281x0/filters:format(jpeg)/https://i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2023/A/Z/xA4aIeTlKuwnbLg92FtA/fallen-furia.jpg",
+    "estoque": 22
+  },
+  {
+    "id": 5,
+    "nome": "Camisa paiN Gaming",
+    "descricao": "Camisa vermelha e preta inspirada na equipe paiN Gaming.",
+    "preco": 219.9,
+    "categoria": "Camisas",
+    "imagem": "https://www.pain.gg/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0988%2F6787%2F2115%2Ffiles%2F4.jpg%3Fv%3D1784225645&w=3840&q=90",
+    "estoque": 12
+  },
+  {
+    "id": 6,
+    "nome": "Camisa Team Liquid",
+    "descricao": "Camisa azul-marinho e branca inspirada na organização Team Liquid.",
+    "preco": 259.9,
+    "categoria": "Camisas",
+    "imagem": "https://loja.teamliquid.com.br/cdn/shop/files/Dom-06543_1.jpg?v=1748383225&width=1000",
+    "estoque": 10
+  },
+  {
+    "id": 7,
+    "nome": "Camisa Sentinels",
+    "descricao": "Modelo vermelho e preto inspirado na equipe Sentinels.",
+    "preco": 239.9,
+    "categoria": "Camisas",
+    "imagem": "https://down-br.img.susercontent.com/file/br-11134207-7r98o-m6x399kb7osn19",
+    "estoque": 14
+  },
+  {
+    "id": 8,
+    "nome": "Camisa Cloud9",
+    "descricao": "Camisa azul e branca inspirada na identidade visual da Cloud9.",
+    "preco": 229.9,
+    "categoria": "Camisas",
+    "imagem": "https://acdn-us.mitiendanube.com/stores/002/332/223/products/323-f1bef94bf12ed7265a17223537005047-640-0.webp",
+    "estoque": 16
+  },
+  {
+    "id": 9,
+    "nome": "Moletom LOUD",
+    "descricao": "Moletom preto com detalhes verdes, ideal para acompanhar campeonatos e streams.",
+    "preco": 299.9,
+    "categoria": "Roupas",
+    "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm9JRsNQss-fHi2eEfaibWaucq_Armytkz_AwS6WR-ZVIjs-fp2Xk36F4&s=10",
+    "estoque": 8
+  },
+  {
+    "id": 10,
+    "nome": "Boné FURIA",
+    "descricao": "Boné preto com visual esportivo inspirado na FURIA.",
+    "preco": 119.9,
+    "categoria": "Acessórios",
+    "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYGW2JQoXOgvQSwCObS6ZJh8xVfCv08svQC5GMsbGecguL8TtNWgn_Aii5&s=10",
+    "estoque": 25
+  },
+  {
+    "id": 11,
+    "nome": "Mousepad T1",
+    "descricao": "Mousepad gamer com superfície ampla e visual preto com detalhes vermelhos.",
+    "preco": 89.9,
+    "categoria": "Acessórios",
+    "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgVJIKQTBvui3Gouy_hh-RgVIAmoUBYaiB5id4EfyX5g&s=10",
+    "estoque": 30
+  },
+  {
+    "id": 12,
+    "nome": "Camisa MIBR Edição Clássica",
+    "descricao": "Versão clássica em preto, com detalhes azuis e visual minimalista.",
+    "preco": 199.9,
+    "categoria": "Camisas",
+    "imagem": "https://mkplace-images.imgix.net/1_YLib8b5o/9783397d9a89bb2d6f42ba38791cfd607a0968c2_https-bucket-file-storage-production-mkplaces3sa-east-1amazonawscom-1ylib8b5o-734535ec80257e51dc81128de028e51ewebp?w=1000&h=1000&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.4&auto=format,compress&q=60&strip=all",
+    "estoque": 11
+  }
+]

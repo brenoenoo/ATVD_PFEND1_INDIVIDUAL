@@ -25,12 +25,14 @@ export function criarProdutoService({ produtoModel }) {
     const produto = new Produto({
       id: 1,
       ...dados,
+      descricao: dados.descricao ?? "",
       preco: Number(dados.preco),
       estoque: Number(dados.estoque ?? 0),
     });
 
     return produtoModel.criar({
       nome: produto.nome,
+      descricao: produto.descricao,
       preco: produto.preco,
       estoque: produto.estoque,
       categoria: produto.categoria,
@@ -45,12 +47,14 @@ export function criarProdutoService({ produtoModel }) {
       ...produtoAtual,
       ...dados,
       id: produtoAtual.id,
+      descricao: dados.descricao ?? produtoAtual.descricao ?? "",
       preco: Number(dados.preco ?? produtoAtual.preco),
       estoque: Number(dados.estoque ?? produtoAtual.estoque),
     });
 
     return produtoModel.atualizar(produtoAtualizado.id, {
       nome: produtoAtualizado.nome,
+      descricao: produtoAtualizado.descricao,
       preco: produtoAtualizado.preco,
       estoque: produtoAtualizado.estoque,
       categoria: produtoAtualizado.categoria,
@@ -60,8 +64,15 @@ export function criarProdutoService({ produtoModel }) {
 
   async function excluir(idRecebido) {
     await buscarPorId(idRecebido);
+
     return produtoModel.excluir(Number(idRecebido));
   }
 
-  return { listar, buscarPorId, criar, atualizar, excluir };
+  return {
+    listar,
+    buscarPorId,
+    criar,
+    atualizar,
+    excluir,
+  };
 }
