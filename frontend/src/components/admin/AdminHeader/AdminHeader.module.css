@@ -1,0 +1,50 @@
+.adminNavbar {
+  padding: 16px 0;
+  background: #111113;
+  border-bottom: 1px solid #302d34;
+}
+
+.adminNavbar > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.backButton {
+  padding: 10px 13px;
+  border: 1px solid #403742;
+  border-radius: 6px;
+  background: transparent;
+  color: #f58dbb;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.backButton:hover {
+  border-color: #f58dbb;
+  background: #f58dbb;
+  color: #171116;
+}
+
+.backButton:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 575px) {
+  .adminNavbar {
+    padding: 13px 0;
+  }
+
+  .adminNavbar > div {
+    gap: 10px;
+  }
+
+  .backButton {
+    padding: 9px 8px;
+    font-size: 8px;
+  }
+}

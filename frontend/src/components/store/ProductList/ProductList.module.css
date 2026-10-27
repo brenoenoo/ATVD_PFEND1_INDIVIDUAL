@@ -1,0 +1,7 @@
+.productGrid {
+  align-items: stretch;
+}
+
+.productGrid > div {
+  min-width: 0;
+}

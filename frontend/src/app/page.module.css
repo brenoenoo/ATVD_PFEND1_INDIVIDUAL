@@ -737,6 +737,43 @@
   }
 }
 
+
+.adminLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 13px;
+  border: 1px solid #493644;
+  border-radius: 6px;
+  color: #f58dbb;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.adminLink:hover {
+  border-color: #f58dbb;
+  background: #f58dbb;
+  color: #171116;
+}
+
+.adminLink:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 420px) {
+  .adminLink {
+    padding: 8px;
+    font-size: 9px;
+  }
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   .productCard,
   .productImage,
