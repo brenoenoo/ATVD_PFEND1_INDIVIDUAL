@@ -1,10 +1,19 @@
 import express from "express";
+import cors from "cors";
+
 import { criarProdutoModel } from "./models/ProdutoModels.js";
 import { criarProdutoService } from "./services/ProdutoService.js";
 import { criarProdutoController } from "./controllers/ProdutoController.js";
 import { criarProdutoRoutes } from "./routes/produtoRoutes.js";
 
 export const app = express();
+
+// Permite requisições do frontend Next.js
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  }),
+);
 
 app.use(express.json());
 

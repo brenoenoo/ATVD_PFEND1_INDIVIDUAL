@@ -17,6 +17,7 @@ export function criarProdutoModel() {
       preco: produto.preco,
       estoque: produto.estoque,
       categoria: produto.categoria,
+      imagem: produto.imagem ?? "",
     };
 
     produtos.push(novoProduto);

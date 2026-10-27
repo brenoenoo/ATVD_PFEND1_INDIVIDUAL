@@ -34,6 +34,7 @@ export function criarProdutoService({ produtoModel }) {
       preco: produto.preco,
       estoque: produto.estoque,
       categoria: produto.categoria,
+      imagem: produto.imagem,
     });
   }
 
@@ -53,6 +54,7 @@ export function criarProdutoService({ produtoModel }) {
       preco: produtoAtualizado.preco,
       estoque: produtoAtualizado.estoque,
       categoria: produtoAtualizado.categoria,
+      imagem: produtoAtualizado.imagem,
     });
   }
 
