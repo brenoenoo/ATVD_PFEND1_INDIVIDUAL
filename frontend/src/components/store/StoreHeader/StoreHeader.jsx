@@ -3,7 +3,12 @@
 import Brand from "../../shared/Brand/Brand";
 import styles from "./StoreHeader.module.css";
 
-export default function StoreHeader({ busca, setBusca, itensCarrinho }) {
+export default function StoreHeader({
+  busca,
+  setBusca,
+  itensCarrinho,
+  onAbrirCarrinho,
+}) {
   return (
     <>
       <div className={styles.topbar}>
@@ -37,7 +42,8 @@ export default function StoreHeader({ busca, setBusca, itensCarrinho }) {
             <button
               type="button"
               className={styles.cartButton}
-              aria-label={`Carrinho com ${itensCarrinho} itens`}
+              aria-label={`Abrir sacola com ${itensCarrinho} itens`}
+              onClick={onAbrirCarrinho}
             >
               Sacola
               <span className={styles.cartCount}>{itensCarrinho}</span>

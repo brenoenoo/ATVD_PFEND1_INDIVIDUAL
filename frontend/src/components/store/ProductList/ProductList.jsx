@@ -7,6 +7,7 @@ export default function ProductList({
   totalProdutos,
   busca,
   onAdicionar,
+  onVerDetalhes,
   onLimparFiltros,
 }) {
   if (produtos.length === 0) {
@@ -37,7 +38,11 @@ export default function ProductList({
     >
       {produtos.map((produto, indice) => (
         <div className="col" key={produto.id ?? `${produto.nome}-${indice}`}>
-          <ProductCard produto={produto} onAdicionar={onAdicionar} />
+          <ProductCard
+            produto={produto}
+            onAdicionar={onAdicionar}
+            onVerDetalhes={onVerDetalhes}
+          />
         </div>
       ))}
     </div>

@@ -5,9 +5,7 @@ import styles from "./ProductCard.module.css";
 function formatarPreco(valor) {
   const preco = Number(valor);
 
-  if (!Number.isFinite(preco)) {
-    return "Preço sob consulta";
-  }
+  if (!Number.isFinite(preco)) return "Preço sob consulta";
 
   return new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -15,7 +13,7 @@ function formatarPreco(valor) {
   }).format(preco);
 }
 
-export default function ProductCard({ produto, onAdicionar }) {
+export default function ProductCard({ produto, onAdicionar, onVerDetalhes }) {
   const estoque = Number(produto.estoque);
   const semEstoque = Number.isFinite(estoque) && estoque <= 0;
 
@@ -64,6 +62,14 @@ export default function ProductCard({ produto, onAdicionar }) {
                 ? `${estoque} disponível(is)`
                 : "Disponibilidade sob consulta"}
           </p>
+
+          <button
+            type="button"
+            className={`btn ${styles.detailsButton}`}
+            onClick={() => onVerDetalhes(produto)}
+          >
+            VER DETALHES
+          </button>
 
           <button
             type="button"

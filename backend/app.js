@@ -6,9 +6,13 @@ import { criarProdutoService } from "./services/ProdutoService.js";
 import { criarProdutoController } from "./controllers/ProdutoController.js";
 import { criarProdutoRoutes } from "./routes/produtoRoutes.js";
 
+import { criarPedidoModel } from "./models/PedidoModels.js";
+import { criarPedidoService } from "./services/PedidoService.js";
+import { criarPedidoController } from "./controllers/PedidoController.js";
+import { criarPedidoRoutes } from "./routes/pedidoRoutes.js";
+
 export const app = express();
 
-// Permite requisições do frontend Next.js
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -22,6 +26,14 @@ const produtoService = criarProdutoService({ produtoModel });
 const produtoController = criarProdutoController({ produtoService });
 const produtoRoutes = criarProdutoRoutes({ produtoController });
 
+const pedidoModel = criarPedidoModel();
+const pedidoService = criarPedidoService({
+  pedidoModel,
+  produtoModel,
+});
+const pedidoController = criarPedidoController({ pedidoService });
+const pedidoRoutes = criarPedidoRoutes({ pedidoController });
+
 app.get("/api/check", (req, res) => {
   res.status(200).json({
     status: "ok",
@@ -30,6 +42,7 @@ app.get("/api/check", (req, res) => {
 });
 
 app.use("/api/produtos", produtoRoutes);
+app.use("/api/pedidos", pedidoRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
@@ -41,6 +54,7 @@ app.use((erro, req, res, next) => {
   console.error("Erro de sistema:", erro.message);
 
   res.status(500).json({
+    sucesso: false,
     erro: "Falha interna do servidor",
   });
 });

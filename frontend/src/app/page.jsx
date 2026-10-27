@@ -6,8 +6,19 @@ import styles from "./page.module.css";
 import StoreHeader from "../components/store/StoreHeader/StoreHeader";
 import ProductList from "../components/store/ProductList/ProductList";
 import StoreFeedback from "../components/store/StoreFeedback/StoreFeedback";
+import ProductDetailsModal from "../components/store/ProductDetailsModal/ProductDetailsModal";
+import CartModal from "../components/store/CartModal/CartModal";
+import CheckoutModal from "../components/store/CheckoutModal/CheckoutModal";
 
 const API_URL = "http://localhost:3001/api/produtos";
+
+function mesmoProduto(produtoA, produtoB) {
+  if (produtoA.id != null && produtoB.id != null) {
+    return String(produtoA.id) === String(produtoB.id);
+  }
+
+  return produtoA.nome === produtoB.nome;
+}
 
 export default function Home() {
   const [produtos, setProdutos] = useState([]);
@@ -15,7 +26,11 @@ export default function Home() {
   const [erro, setErro] = useState("");
   const [busca, setBusca] = useState("");
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todas");
-  const [itensCarrinho, setItensCarrinho] = useState(0);
+
+  const [itensCarrinho, setItensCarrinho] = useState([]);
+  const [produtoSelecionado, setProdutoSelecionado] = useState(null);
+  const [carrinhoAberto, setCarrinhoAberto] = useState(false);
+  const [checkoutAberto, setCheckoutAberto] = useState(false);
 
   const carregarProdutos = useCallback(async () => {
     setCarregando(true);
@@ -72,6 +87,7 @@ export default function Home() {
 
     return produtos.filter((produto) => {
       const nome = String(produto.nome || "").toLocaleLowerCase("pt-BR");
+
       const categoria = String(produto.categoria || "").toLocaleLowerCase(
         "pt-BR",
       );
@@ -87,9 +103,86 @@ export default function Home() {
     });
   }, [produtos, busca, categoriaSelecionada]);
 
-  function adicionarAoCarrinho() {
-    setItensCarrinho((quantidade) => quantidade + 1);
-  }
+  const quantidadeTotal = useMemo(
+    () => itensCarrinho.reduce((total, item) => total + item.quantidade, 0),
+    [itensCarrinho],
+  );
+
+  const adicionarAoCarrinho = useCallback((produto) => {
+    const estoque = Number(produto.estoque);
+
+    if (Number.isFinite(estoque) && estoque <= 0) {
+      return;
+    }
+
+    setItensCarrinho((itensAtuais) => {
+      const itemExistente = itensAtuais.find((item) =>
+        mesmoProduto(item.produto, produto),
+      );
+
+      if (itemExistente) {
+        if (Number.isFinite(estoque) && itemExistente.quantidade >= estoque) {
+          return itensAtuais;
+        }
+
+        return itensAtuais.map((item) =>
+          mesmoProduto(item.produto, produto)
+            ? { ...item, quantidade: item.quantidade + 1 }
+            : item,
+        );
+      }
+
+      return [...itensAtuais, { produto, quantidade: 1 }];
+    });
+  }, []);
+
+  const alterarQuantidade = useCallback((produto, novaQuantidade) => {
+    if (novaQuantidade <= 0) {
+      setItensCarrinho((itensAtuais) =>
+        itensAtuais.filter((item) => !mesmoProduto(item.produto, produto)),
+      );
+
+      return;
+    }
+
+    const estoque = Number(produto.estoque);
+
+    if (Number.isFinite(estoque) && novaQuantidade > estoque) {
+      return;
+    }
+
+    setItensCarrinho((itensAtuais) =>
+      itensAtuais.map((item) =>
+        mesmoProduto(item.produto, produto)
+          ? { ...item, quantidade: novaQuantidade }
+          : item,
+      ),
+    );
+  }, []);
+
+  const removerDoCarrinho = useCallback((produto) => {
+    setItensCarrinho((itensAtuais) =>
+      itensAtuais.filter((item) => !mesmoProduto(item.produto, produto)),
+    );
+  }, []);
+
+  const abrirCheckout = useCallback(() => {
+    if (itensCarrinho.length === 0) {
+      return;
+    }
+
+    setCarrinhoAberto(false);
+    setCheckoutAberto(true);
+  }, [itensCarrinho]);
+
+  const fecharCheckout = useCallback(() => {
+    setCheckoutAberto(false);
+  }, []);
+
+  const pedidoConcluido = useCallback(() => {
+    setItensCarrinho([]);
+    carregarProdutos();
+  }, [carregarProdutos]);
 
   function limparFiltros() {
     setBusca("");
@@ -101,7 +194,8 @@ export default function Home() {
       <StoreHeader
         busca={busca}
         setBusca={setBusca}
-        itensCarrinho={itensCarrinho}
+        itensCarrinho={quantidadeTotal}
+        onAbrirCarrinho={() => setCarrinhoAberto(true)}
       />
 
       <main>
@@ -220,6 +314,7 @@ export default function Home() {
                 totalProdutos={produtos.length}
                 busca={busca.trim()}
                 onAdicionar={adicionarAoCarrinho}
+                onVerDetalhes={setProdutoSelecionado}
                 onLimparFiltros={limparFiltros}
               />
             )}
@@ -234,6 +329,7 @@ export default function Home() {
               <strong className={styles.footerBrand}>
                 PINK<span>ARENA</span>
               </strong>
+
               <p>Seu jogo. Seu estilo. Seu próximo nível.</p>
             </div>
 
@@ -243,6 +339,28 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <ProductDetailsModal
+        produto={produtoSelecionado}
+        onFechar={() => setProdutoSelecionado(null)}
+        onAdicionar={adicionarAoCarrinho}
+      />
+
+      <CartModal
+        aberto={carrinhoAberto}
+        itens={itensCarrinho}
+        onFechar={() => setCarrinhoAberto(false)}
+        onAlterarQuantidade={alterarQuantidade}
+        onRemover={removerDoCarrinho}
+        onFinalizarCompra={abrirCheckout}
+      />
+
+      <CheckoutModal
+        aberto={checkoutAberto}
+        itens={itensCarrinho}
+        onFechar={fecharCheckout}
+        onPedidoConcluido={pedidoConcluido}
+      />
     </div>
   );
 }

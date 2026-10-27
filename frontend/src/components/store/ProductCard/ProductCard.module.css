@@ -151,6 +151,30 @@
   outline-offset: 3px;
 }
 
+.detailsButton {
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 12px;
+  border: 1px solid #49414b;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.detailsButton:hover {
+  border-color: #f58dbb;
+  background: rgb(245 141 187 / 8%);
+  color: #f58dbb;
+}
+
+.detailsButton:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
 @media (max-width: 575px) {
   .productImageWrap {
     min-height: 190px;
